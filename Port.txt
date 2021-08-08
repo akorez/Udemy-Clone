@@ -1,0 +1,10 @@
+IdentityServer => 5001
+Services :
+	- CatalogAPI => 5011
+	- PhotoStockAPI => 5012
+	- BasketAPI => 5013
+	- DiscountAPI => 5014
+	- OrderAPI => 5015
+	- FakePaymentAPI => 5016
+Gateway => 5000
+Web => 5010

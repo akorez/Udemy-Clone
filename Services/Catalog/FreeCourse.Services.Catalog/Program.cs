@@ -1,6 +1,5 @@
-using FreeCourse.Services.Catalog.Dtos;
-using FreeCourse.Services.Catalog.Models;
-using FreeCourse.Services.Catalog.Services;
+using FreeCourse.Service.Catalog.Dtos;
+using FreeCourse.Service.Catalog.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,30 +10,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FreeCourse.Services.Catalog
+namespace FreeCourse.Service.Catalog
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            var host = CreateHostBuilder(args).Build();
-
-            using (var scope = host.Services.CreateScope())
             {
-                var serviceProvider = scope.ServiceProvider;
+                var host = CreateHostBuilder(args).Build();
 
-                var categoryService = serviceProvider.GetRequiredService<ICategoryService>();
-
-                if (!categoryService.GetAllAsync().Result.Data.Any())
+                using (var scope = host.Services.CreateScope())
                 {
-                    categoryService.CreateAsync(new CategoryDto { Name = "Asp.net Core Kursu" }).Wait();
-                    categoryService.CreateAsync(new CategoryDto { Name = "Asp.net Core API Kursu" }).Wait();
+                    var serviceProvider = scope.ServiceProvider;
+
+                    var categoryService = serviceProvider.GetRequiredService<ICategoryService>();
+
+                    if (!categoryService.GetAllAsync().Result.Data.Any())
+                    {
+                        categoryService.CreateAsync(new CategoryDto { Name = "Asp.net Core Kursu" }).Wait();
+                        categoryService.CreateAsync(new CategoryDto { Name = "Asp.net Core API Kursu" }).Wait();
+                    }
                 }
+
+                host.Run();
+
             }
-
-            host.Run();
         }
-
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>

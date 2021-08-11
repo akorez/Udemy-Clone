@@ -1,4 +1,5 @@
-﻿using FreeCourse.Web.Models;
+﻿using FreeCourse.Shared.Dtos;
+using FreeCourse.Web.Models;
 using FreeCourse.Web.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -22,5 +23,6 @@ namespace FreeCourse.Web.Services
         {
             return await _client.GetFromJsonAsync<UserViewModel>("/api/user/getuser");
         }
+
     }
 }

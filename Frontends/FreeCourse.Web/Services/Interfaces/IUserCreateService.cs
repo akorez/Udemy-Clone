@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace FreeCourse.Web.Services.Interfaces
 {
-    public interface IUserService
+    public interface IUserCreateService
     {
-        Task<UserViewModel> GetUser();
+        Task<ResponseDto<bool>> SignUp(SingUpInput singUpInput);
     }
 }

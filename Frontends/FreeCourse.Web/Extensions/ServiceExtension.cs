@@ -19,6 +19,11 @@ namespace FreeCourse.Web.Extensions
             services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
             services.AddHttpClient<IIdentityService, IdentityService>();
 
+            services.AddHttpClient<IUserCreateService, UserCreateService>(opt =>
+            {
+                opt.BaseAddress = new Uri(serviceApiSettings.IdentityBaseUri);
+            }).AddHttpMessageHandler<ClientCredentialTokenHandler>(); 
+
             services.AddHttpClient<ICatalogService, CatalogService>(opt =>
 
             {

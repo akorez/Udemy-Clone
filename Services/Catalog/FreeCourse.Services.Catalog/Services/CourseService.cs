@@ -108,6 +108,8 @@ namespace FreeCourse.Service.Catalog.Services
 
             await _publishEndpoint.Publish<CourseNameChangedEvent>(new CourseNameChangedEvent { CourseId = updateCourse.Id, UpdatedName = courseUpdateDto.Name });
 
+            await _publishEndpoint.Publish<BasketCourseNameChangeEvent>(new BasketCourseNameChangeEvent { CourseId = updateCourse.Id, UpdatedName = courseUpdateDto.Name, UserId = updateCourse.UserId });
+
             return ResponseDto<NoContent>.Success(204);
         }
 

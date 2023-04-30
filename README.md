@@ -1,4 +1,4 @@
-# Microservices-Project
+# Microservices Project - Udemy Clone
 ### In this project, a clone of popular online education platform Udemy.com is created using microservice architecture.
 ![plot](https://user-images.githubusercontent.com/34706028/129094300-ce025284-e362-49bc-b046-2d828ce3d150.png)
 ## Features :

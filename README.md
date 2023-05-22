@@ -2,7 +2,7 @@
 ### In this project, a clone of popular online education platform Udemy.com is created using microservice architecture.
 ![plot](https://user-images.githubusercontent.com/34706028/129094300-ce025284-e362-49bc-b046-2d828ce3d150.png)
 ## Features :
-- Synchronous and asynchronous communication between microservices using .Net5
+- Synchronous and asynchronous communication between microservices using ~.Net5~ .Net 7
 - Implementation of OAuth 2.0 and OpenID Connect protocols in Microservices architecture
 - Using Eventual Consistency model to ensure consistency in databases of microservices
 - Dockerize all microservices using docker-compose
